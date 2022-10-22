@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {AiOutlineClose, AiOutlineMenu, AiOutlineSearch, AiFillTag} from 'react-icons/ai';
 import {BsFillCartFill, BsFillSaveFill} from "react-icons/bs";
 import {TbTruckDelivery} from "react-icons/tb";
@@ -6,6 +6,14 @@ import {MdFavorite, MdHelp} from "react-icons/md";
 import {FaWallet, FaUserFriends} from "react-icons/fa";
 const Navbar = () => {
     const [nav, setNav] = useState(false);
+
+    useEffect(()=>{
+        if(nav){
+            document.body.style.overflow = 'hidden';
+        }else{
+            document.body.style.overflow = 'auto';
+        }
+    }, [nav]);
     return (
         <div className='max-w-[1640px] mx-auto flex justify-between items-center p-4'>
             {/* Left side */}
